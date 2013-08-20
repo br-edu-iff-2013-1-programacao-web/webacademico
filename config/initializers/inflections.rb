@@ -20,7 +20,7 @@ ActiveSupport::Inflector.inflections do |inflect|
     inflect.irregular 'frequencia', 'frequencias'
     inflect.irregular 'diarioaluno', 'diarioalunos'
     inflect.irregular 'matriculado', 'matriculados'
-    inflect.irregular 'professor', 'professores'
+    inflect.irregular 'docente', 'docentes'
     inflect.irregular 'diario', 'diarios'
     inflect.irregular 'grade', 'grades'
     inflect.irregular 'curso', 'cursos'

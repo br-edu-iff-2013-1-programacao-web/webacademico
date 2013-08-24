@@ -1,0 +1,7 @@
+= semantic_form_for [@matriculado] do |form|
+  
+  = form.input :periodo, :label => 'Periodo'
+  = form.input :estadomatricula, :label => 'Situacao'
+  = form.input :aluno, :member_label => :nome, :label => 'Aluno'
+  = form.input :curso, :member_label => :nome, :label => 'Curso'
+  = form.submit 'Salvar'

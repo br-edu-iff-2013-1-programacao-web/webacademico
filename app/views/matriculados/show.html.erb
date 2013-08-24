@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @matriculado.periodo %>
+</p>
+
+<p>
+  <b>Situacao:</b>
+  <%= @matriculado.estadomatricula %>
+</p>
+
+<p>
+  <b>Aluno:</b>
+  <%= @matriculado.aluno.nome %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= @matriculado.curso.nome %>
+</p>
+
+
+<%= link_to 'Edit', edit_matriculado_path(@matriculado) %> |
+<%= link_to 'Back', matriculados_path %>

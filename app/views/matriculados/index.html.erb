@@ -1,0 +1,29 @@
+<h1>Listing matriculados</h1>
+
+<table>
+  <tr>
+    <th>Periodo</th>
+    <th>Estadomatricula</th>
+    <th>Aluno</th>
+    <th>Curso</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matriculados.each do |matriculado| %>
+  <tr>
+    <td><%= matriculado.periodo %></td>
+    <td><%= matriculado.estadomatricula %></td>
+    <td><%= matriculado.aluno %></td>
+    <td><%= matriculado.curso %></td>
+    <td><%= link_to 'Show', matriculado %></td>
+    <td><%= link_to 'Edit', edit_matriculado_path(matriculado) %></td>
+    <td><%= link_to 'Destroy', matriculado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Matriculado', new_matriculado_path %>

@@ -1,4 +1,7 @@
 Webacademico::Application.routes.draw do
+  resources :alunos
+
+
   resources :grades
 
 

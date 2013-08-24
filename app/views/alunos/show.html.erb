@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @aluno.nome %>
+</p>
+
+<p>
+  <b>Matricula:</b>
+  <%= @aluno.matricula %>
+</p>
+
+<p>
+  <b>Pai:</b>
+  <%= @aluno.pai %>
+</p>
+
+<p>
+  <b>Mae:</b>
+  <%= @aluno.mae %>
+</p>
+
+<p>
+  <b>CPF:</b>
+  <%= @aluno.cpf %>
+</p>
+
+<p>
+  <b>RG:</b>
+  <%= @aluno.rg %>
+</p>
+
+<p>
+  <b>Endereco:</b>
+  <%= @aluno.endereco %>
+</p>
+
+<p>
+  <b>Bairro:</b>
+  <%= @aluno.bairro %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%= @aluno.cidade %>
+</p>
+
+<p>
+  <b>UF:</b>
+  <%= @aluno.uf %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @aluno.email %>
+</p>
+
+<p>
+  <b>Foto:</b>
+  <%= @aluno.imageurl %>
+</p>
+
+
+<%= link_to 'Edit', edit_aluno_path(@aluno) %> |
+<%= link_to 'Back', alunos_path %>

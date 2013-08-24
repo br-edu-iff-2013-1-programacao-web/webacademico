@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824174647) do
+ActiveRecord::Schema.define(:version => 20130824183433) do
+
+  create_table "alunos", :force => true do |t|
+    t.string   "nome"
+    t.string   "matricula"
+    t.string   "pai"
+    t.string   "mae"
+    t.string   "cpf"
+    t.string   "rg"
+    t.string   "endereco"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "uf"
+    t.string   "email"
+    t.string   "imageurl"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "cursos", :force => true do |t|
     t.string   "graduacao"

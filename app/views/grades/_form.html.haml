@@ -1,0 +1,7 @@
+= semantic_form_for [@grade] do |form|
+  
+  = form.input :periodo, :label => 'Periodo'
+  = form.input :referencia, :label => 'Referencia'
+  = form.input :disciplina, :member_label => :nome, :label => 'Disciplina'
+  = form.input :curso, :member_label => :nome, :label => 'Curso'
+  = form.submit 'Salvar'

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @grade.periodo %>
+</p>
+
+<p>
+  <b>Referencia:</b>
+  <%= @grade.referencia %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= @grade.disciplina.nome %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= @grade.curso.nome %>
+</p>
+
+
+<%= link_to 'Edit', edit_grade_path(@grade) %> |
+<%= link_to 'Back', grades_path %>

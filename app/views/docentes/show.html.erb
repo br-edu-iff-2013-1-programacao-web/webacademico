@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @docente.nome %>
+</p>
+
+<p>
+  <b>Matricula:</b>
+  <%= @docente.matricula %>
+</p>
+
+<p>
+  <b>Situacao:</b>
+  <%= @docente.situacao %>
+</p>
+
+<p>
+  <b>Titulacao:</b>
+  <%= @docente.titulacao %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @docente.email %>
+</p>
+
+<p>
+  <b>Foto:</b>
+  <%= @docente.imageurl %>
+</p>
+
+
+<%= link_to 'Edit', edit_docente_path(@docente) %> |
+<%= link_to 'Back', docentes_path %>

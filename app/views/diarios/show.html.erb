@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ano:</b>
+  <%= @diario.ano %>
+</p>
+
+<p>
+  <b>Semestre:</b>
+  <%= @diario.semestre %>
+</p>
+
+<p>
+  <b>Turno:</b>
+  <%= @diario.turno %>
+</p>
+
+<p>
+  <b>Pasta:</b>
+  <%= @diario.pasta %>
+</p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @diario.grade.periodo %>
+</p>
+
+<p>
+  <b>Docente:</b>
+  <%= @diario.docente.nome %>
+</p>
+
+
+<%= link_to 'Edit', edit_diario_path(@diario) %> |
+<%= link_to 'Back', diarios_path %>

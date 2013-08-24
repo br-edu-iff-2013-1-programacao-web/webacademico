@@ -1,0 +1,9 @@
+= semantic_form_for [@diario] do |form|
+  
+  = form.input :ano, :label => 'Ano'
+  = form.input :semestre, :label => 'Semestre'
+  = form.input :turno, :label => 'Turno'
+  = form.input :pasta, :label => 'Pasta'
+  = form.input :docente, :member_label => :nome, :label => 'Docente'
+  = form.input :grade, :member_label => :periodo, :label => 'Periodo'
+  = form.submit 'Salvar'

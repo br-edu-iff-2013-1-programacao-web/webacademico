@@ -1,4 +1,7 @@
 Webacademico::Application.routes.draw do
+  resources :diarios
+
+
   resources :docentes
 
 

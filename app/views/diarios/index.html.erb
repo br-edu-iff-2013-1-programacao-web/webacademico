@@ -1,0 +1,33 @@
+<h1>Listing diarios</h1>
+
+<table>
+  <tr>
+    <th>Ano</th>
+    <th>Semestre</th>
+    <th>Turno</th>
+    <th>Pasta</th>
+    <th>Grade</th>
+    <th>Docente</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @diarios.each do |diario| %>
+  <tr>
+    <td><%= diario.ano %></td>
+    <td><%= diario.semestre %></td>
+    <td><%= diario.turno %></td>
+    <td><%= diario.pasta %></td>
+    <td><%= diario.grade %></td>
+    <td><%= diario.docente %></td>
+    <td><%= link_to 'Show', diario %></td>
+    <td><%= link_to 'Edit', edit_diario_path(diario) %></td>
+    <td><%= link_to 'Destroy', diario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Diario', new_diario_path %>

@@ -1,0 +1,29 @@
+<h1>Listing diarioalunos</h1>
+
+<table>
+  <tr>
+    <th>Mediafinal</th>
+    <th>Frequenciafinal</th>
+    <th>Diario</th>
+    <th>Matriculado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @diarioalunos.each do |diarioaluno| %>
+  <tr>
+    <td><%= diarioaluno.mediafinal %></td>
+    <td><%= diarioaluno.frequenciafinal %></td>
+    <td><%= diarioaluno.diario %></td>
+    <td><%= diarioaluno.matriculado %></td>
+    <td><%= link_to 'Show', diarioaluno %></td>
+    <td><%= link_to 'Edit', edit_diarioaluno_path(diarioaluno) %></td>
+    <td><%= link_to 'Destroy', diarioaluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Diarioaluno', new_diarioaluno_path %>

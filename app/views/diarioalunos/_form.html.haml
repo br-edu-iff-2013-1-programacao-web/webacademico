@@ -1,0 +1,7 @@
+= semantic_form_for [@diarioaluno] do |form|
+  
+  = form.input :mediafinal, :label => 'Media Final'
+  = form.input :frequenciafinal, :label => 'Frequencia Final'
+  = form.input :diario, :member_label => :pasta, :label => 'Diario'
+  = form.input :matriculado, :member_label => :estadomatricula, :label => 'Status'
+  = form.submit 'Salvar'

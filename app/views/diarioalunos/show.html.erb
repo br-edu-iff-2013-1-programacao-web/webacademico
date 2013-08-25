@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Media Final:</b>
+  <%= @diarioaluno.mediafinal %>
+</p>
+
+<p>
+  <b>Frequencia Final:</b>
+  <%= @diarioaluno.frequenciafinal %>
+</p>
+
+<p>
+  <b>Diario:</b>
+  <%= @diarioaluno.diario.pasta %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @diarioaluno.matriculado.estadomatricula %>
+</p>
+
+
+<%= link_to 'Edit', edit_diarioaluno_path(@diarioaluno) %> |
+<%= link_to 'Back', diarioalunos_path %>

@@ -1,0 +1,6 @@
+= semantic_form_for [@nota] do |form|
+  
+  = form.input :nota, :label => 'Nota'
+  = form.input :avaliacao, :label => 'Avaliacao'
+  = form.input :diarioaluno, :member_label => :mediafinal, :label => 'Media'
+  = form.submit 'Salvar'

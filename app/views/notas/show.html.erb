@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nota:</b>
+  <%= @nota.nota %>
+</p>
+
+<p>
+  <b>Avaliacao:</b>
+  <%= @nota.avaliacao %>
+</p>
+
+<p>
+  <b>Media:</b>
+  <%= @nota.diarioaluno.mediafinal %>
+</p>
+
+
+<%= link_to 'Edit', edit_nota_path(@nota) %> |
+<%= link_to 'Back', notas_path %>

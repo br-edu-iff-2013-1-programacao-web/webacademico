@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Frequencia:</b>
+  <%= @frequencia.frequencia %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @frequencia.data %>
+</p>
+
+<p>
+  <b>Frequencia Total:</b>
+  <%= @frequencia.diarioaluno.frequenciafinal %>
+</p>
+
+
+<%= link_to 'Edit', edit_frequencia_path(@frequencia) %> |
+<%= link_to 'Back', frequencias_path %>

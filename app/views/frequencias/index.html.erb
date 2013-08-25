@@ -1,0 +1,27 @@
+<h1>Listing frequencias</h1>
+
+<table>
+  <tr>
+    <th>Frequencia</th>
+    <th>Data</th>
+    <th>Diarioaluno</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @frequencias.each do |frequencia| %>
+  <tr>
+    <td><%= frequencia.frequencia %></td>
+    <td><%= frequencia.data %></td>
+    <td><%= frequencia.diarioaluno %></td>
+    <td><%= link_to 'Show', frequencia %></td>
+    <td><%= link_to 'Edit', edit_frequencia_path(frequencia) %></td>
+    <td><%= link_to 'Destroy', frequencia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Frequencia', new_frequencia_path %>

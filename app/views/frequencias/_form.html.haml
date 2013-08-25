@@ -1,0 +1,6 @@
+= semantic_form_for [@frequencia] do |form|
+  
+  = form.input :data, :as => :string, :label => 'Data'
+  = form.input :frequencia, :label => 'Frequencia'
+  = form.input :diarioaluno, :member_label => :frequenciafinal, :label => 'Frequencia Total'
+  = form.submit 'Salvar'

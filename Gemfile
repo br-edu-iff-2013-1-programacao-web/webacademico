@@ -23,6 +23,7 @@ gem 'erb2haml'
 gem 'simple-navigation', '~> 3.11.0'
 gem 'cancan', '~> 1.6.10'
 gem 'devise', '~> 3.1.0'
+gem 'paperclip', '~> 3.5.1'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.6'

@@ -36,15 +36,20 @@
 	
 	<div id="body">
 		<div>
-			<div class="featured">
-				<h2>web academico</h2>
-				<p>
-                    <%= yield %>
-                </p>
-		</div>
-	</div>
-	<div id="footer">
-		<div>
+		  <div class="featured">
+            <div id="user_nav">
+            <% if user_signed_in? %>
+            Signed in as <%= current_user.username %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            </div>
+	        <p>
+            <%= yield %>
+            </p>
+          </div>
+	    </div>
+	    <div id="footer">
+		  <div>
 			<div class="connect">
 				<a href="http://twitter.com" id="twitter">twitter</a>
 				<a href="http://facebook.com" id="facebook">facebook</a>

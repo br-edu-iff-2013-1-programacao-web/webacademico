@@ -1,0 +1,33 @@
+<h2>Cadastrar Curso</h2>
+
+<% form_for(@evento) do |f| %>
+
+   <h4>Graduação</h4>
+   <%= f.text_field :graduacao %>
+
+   <h4>Nome</h4>
+   <%= f.text_field :nome %>
+   
+   <h4>Duração</h4>
+   <%= f.text_field :duracao %>
+   
+   <h4>Matriz Curricular</h4>
+   <%= f.text_field :matriz curricular %>
+ 
+    <h4>Regime</h4>
+    <%= f.select :regime_id, Regime.find(:all).collect { |item| [regime.curso_regime,item.id] }
+ 
+   <h4>Ementa</h4>
+   <%= f.text_field :ementa %>
+   
+   <h4>Referencia</h4>
+   <%= f.text_field :referencia %>
+       
+   
+<br />
+   <%= f.submit "Cadastrar" %>
+<% end %>
+
+
+
+

@@ -15,7 +15,11 @@
       <%= f.password_field :password_confirmation %></p>
 
       <p><%= f.label :role %><br />
-      <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+      <% if I18n.locale == :en %> 
+        <%= f.collection_select :role, User::USROLES, :to_s, :humanize %>
+      <% else %>
+        <%= f.collection_select :role, User::PTROLES, :to_s, :humanize %>
+      <% end %>
 
       <p><%= f.submit "Sign up" %></p>
     <% end %>

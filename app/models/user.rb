@@ -9,13 +9,14 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates_presence_of :username
     
-    ROLES = %w[administrador tecnico docente aluno]
+  PTROLES = %w[administrador tecnico docente aluno]
+  USROLES = %w[administrator technical instructor student]
     
-    def role_symbols
-        [role.to_sym]
-    end
-    
-    def role?(role)
-        role.include?(role.to_s)
-    end
+  def role_symbols
+      [role.to_sym]
+  end
+  
+  def role?(role)
+      role.include?(role.to_s)
+  end
 end

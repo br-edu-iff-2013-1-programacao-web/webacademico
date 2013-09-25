@@ -1,20 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@frequencia) do |f| %>
 
-<p>
-  <b>Frequencia:</b>
-  <%= @frequencia.frequencia %>
-</p>
+    <h2><%= I18n.t "activerecord.models.frequencia" %></h2>
+    
+    <p><b><%= f.label :frequencia %>:</b>
+    <%= @frequencia.frequencia %></p>
 
-<p>
-  <b>Data:</b>
-  <%= @frequencia.data %>
-</p>
+    <p><b><%= f.label :data %>:</b>
+    <%= @frequencia.data.strftime("%d/%m/%Y") %></p>
 
-<p>
-  <b>Frequencia Total:</b>
-  <%= @frequencia.diarioaluno.frequenciafinal %>
-</p>
+    <p><b><%= f.label :diarioaluno_id %>:</b>
+    <%= @frequencia.diarioaluno.id.to_s %></p>
+<% end %>
 
-
-<%= link_to 'Edit', edit_frequencia_path(@frequencia) %> |
-<%= link_to 'Back', frequencias_path %>
+<p><% if can? :update, @frequencia %>
+    <%= link_to I18n.t('link_to.edit'), edit_frequencia_path(@frequencia) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), frequencias_path %></p>

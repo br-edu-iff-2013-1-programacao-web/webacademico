@@ -1,0 +1,16 @@
+<%= form_for(@frequencia) do |f| %>
+
+    <h2><%= I18n.t "activerecord.models.frequencia" %></h2>
+
+	<p><%= f.label :frequencia %><br /> 
+	<%= f.text_field :frequencia %></p>
+	
+	<p><%= f.label :data %><br />
+	<%= f.date_select :data, :order => [:day, :month, :year] %></p>
+
+	<p><%= f.label :diarioaluno_id %><br />
+	<%= f.collection_select :diarioaluno_id, Diarioaluno.all, :id, :id.to_s %> </p>
+
+	<div><%= f.submit %></div>
+
+<% end %>

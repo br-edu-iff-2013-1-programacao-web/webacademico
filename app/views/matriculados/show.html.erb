@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@matriculado) do |f| %>
 
-<p>
-  <b>Periodo:</b>
-  <%= @matriculado.periodo %>
-</p>
+    <h2><%= I18n.t "activerecord.models.matriculado" %></h2>
 
-<p>
-  <b>Situacao:</b>
-  <%= @matriculado.estadomatricula %>
-</p>
+    <p><b><%= f.label :periodo %>:</b>
+    <%= @matriculado.periodo %></p>
 
-<p>
-  <b>Aluno:</b>
-  <%= @matriculado.aluno.nome %>
-</p>
+    <p><b><%= f.label :estadomatricula %>:</b>
+    <%= @matriculado.estadomatricula %></p>
 
-<p>
-  <b>Curso:</b>
-  <%= @matriculado.curso.nome %>
-</p>
+    <p><b><%= f.label :aluno_id %>:</b>
+    <%= @matriculado.aluno.nome %></p>
 
+    <p><b><%= f.label :curso_id %>:</b>
+    <%= @matriculado.curso.nome %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_matriculado_path(@matriculado) %> |
-<%= link_to 'Back', matriculados_path %>
+<p><% if can? :update, @matriculado %>
+    <%= link_to I18n.t('link_to.edit'), edit_matriculado_path(@matriculado) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), matriculados_path %></p>

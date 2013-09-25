@@ -1,29 +1,35 @@
-<h1>Listing matriculados</h1>
-
-<table>
-  <tr>
-    <th>Periodo</th>
-    <th>Estadomatricula</th>
-    <th>Aluno</th>
-    <th>Curso</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @matriculados.each do |matriculado| %>
-  <tr>
-    <td><%= matriculado.periodo %></td>
-    <td><%= matriculado.estadomatricula %></td>
-    <td><%= matriculado.aluno %></td>
-    <td><%= matriculado.curso %></td>
-    <td><%= link_to 'Show', matriculado %></td>
-    <td><%= link_to 'Edit', edit_matriculado_path(matriculado) %></td>
-    <td><%= link_to 'Destroy', matriculado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.matriculado" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.matriculado.periodo' %></th>
+        <th><%= I18n.t 'activerecord.attributes.matriculado.estadomatricula' %></th>
+        <th><%= I18n.t 'activerecord.attributes.matriculado.aluno_id' %></th>
+        <th><%= I18n.t 'activerecord.attributes.matriculado.curso_id' %></th>
+      </tr>
+      <tr>
+        <td><%= matriculado.periodo %></td>
+        <td><%= matriculado.estadomatricula %></td>
+        <td><%= matriculado.aluno %></td>
+        <td><%= matriculado.curso %></td>
+      </tr>
+      <tr>
+        <% if can? :read, @matriculado %>
+            <td><p><%= link_to I18n.t('link_to.show'), matriculado %></p></td>
+        <% end %>
+        <% if can? :update, @matriculado %>
+            <td><p><%= link_to I18n.t('link_to.edit'), edit_matriculado_path(matriculado) %></p></td>
+        <% end %>
+        <% if can? :delete, @matriculado %>
+            <td><p><%= link_to I18n.t('link_to.delete'), matriculado, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Matriculado', new_matriculado_path %>
+<% if can? :create, @matriculado %>
+    <p><%= link_to I18n.t('link_to.new'), new_matriculado_path %></p>
+<% end %>

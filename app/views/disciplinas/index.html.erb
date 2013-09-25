@@ -1,35 +1,42 @@
-<h1>Listing disciplinas</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Cargahoraria</th>
-    <th>Ementa</th>
-    <th>Objetivo</th>
-    <th>Prerequisito</th>
-    <th>Credito</th>
-    <th>Referencia</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @disciplinas.each do |disciplina| %>
-  <tr>
-    <td><%= disciplina.nome %></td>
-    <td><%= disciplina.cargahoraria %></td>
-    <td><%= disciplina.ementa %></td>
-    <td><%= disciplina.objetivo %></td>
-    <td><%= disciplina.prerequisito %></td>
-    <td><%= disciplina.credito %></td>
-    <td><%= disciplina.referencia %></td>
-    <td><%= link_to 'Show', disciplina %></td>
-    <td><%= link_to 'Edit', edit_disciplina_path(disciplina) %></td>
-    <td><%= link_to 'Destroy', disciplina, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.disciplina" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.nome' %></th>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.cargahoraria' %></th>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.ementa' %></th>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.objetivo' %></th>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.prerequisito' %></th>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.credito' %></th>
+        <th><%= I18n.t 'activerecord.attributes.disciplina.referencia' %></th>
+      </tr>
+      <tr>
+        <td><%= disciplina.nome %></td>
+        <td><%= disciplina.cargahoraria %></td>
+        <td><%= disciplina.ementa %></td>
+        <td><%= disciplina.objetivo %></td>
+        <td><%= disciplina.prerequisito %></td>
+        <td><%= disciplina.credito %></td>
+        <td><%= disciplina.referencia %></td>
+      </tr>
+      <tr>
+      <% if can? :read, @disciplina %>
+        <td><p><%= link_to I18n.t('link_to.show'), disciplina %></p></td>
+      <% end %>
+      <% if can? :update, @disciplina %>
+        <td><p><%= link_to I18n.t('link_to.edit'), edit_disciplina_path(disciplina) %></p></td>
+      <% end %>
+      <% if can? :delete, @disciplina %>
+        <td><p><%= link_to I18n.t('link_to.delete'), disciplina, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+      <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Disciplina', new_disciplina_path %>
+<% if can? :create, @disciplina %>
+    <p><%= link_to I18n.t('link_to.new'), new_disciplina_path %></p>
+<% end %>

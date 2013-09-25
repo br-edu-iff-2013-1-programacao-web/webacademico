@@ -1,40 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@disciplina) do |f| %>
 
-<p>
-  <b>Nome:</b>
-  <%= @disciplina.nome %>
-</p>
+   <h2><%= I18n.t "activerecord.models.disciplina" %></h2>
 
-<p>
-  <b>Carga Horaria:</b>
-  <%= @disciplina.cargahoraria %>
-</p>
+    <p><b><%= f.label :nome %>:</b>
+    <%= @disciplina.nome %></p>
 
-<p>
-  <b>Ementa:</b>
-  <%= @disciplina.ementa %>
-</p>
+    <p><b><%= f.label :cargahoraria %>:</b>
+    <%= @disciplina.cargahoraria %></p>
 
-<p>
-  <b>Objetivo:</b>
-  <%= @disciplina.objetivo %>
-</p>
+    <p><b><%= f.label :ementa %>:</b>
+    <%= @disciplina.ementa %></p>
 
-<p>
-  <b>Pre Requisito:</b>
-  <%= @disciplina.prerequisito %>
-</p>
+    <p><b><%= f.label :objetivo %>:</b>
+    <%= @disciplina.objetivo %></p>
 
-<p>
-  <b>Credito:</b>
-  <%= @disciplina.credito %>
-</p>
+    <p><b><%= f.label :prerequisito %>:</b>
+    <%= @disciplina.prerequisito %></p>
 
-<p>
-  <b>Referencia:</b>
-  <%= @disciplina.referencia %>
-</p>
+    <p><b><%= f.label :credito %>:</b>
+    <%= @disciplina.credito %></p>
 
+    <p><b><%= f.label :referencia %>:</b>
+    <%= @disciplina.referencia %></p>
+    
+<% end %>
 
-<%= link_to 'Edit', edit_disciplina_path(@disciplina) %> |
-<%= link_to 'Back', disciplinas_path %>
+<p><% if can? :update, @disciplina %>
+    <%= link_to I18n.t('link_to.edit'), edit_disciplina_path(@disciplina) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), disciplinas_path %></p>

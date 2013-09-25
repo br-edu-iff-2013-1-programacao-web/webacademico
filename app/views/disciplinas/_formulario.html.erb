@@ -1,0 +1,28 @@
+<%= form_for(@disciplina) do |f| %>
+
+   <h2><%= I18n.t "activerecord.models.disciplina" %></h2>
+
+	<p><%= f.label :nome %><br /> 
+	<%= f.text_field :nome %></p>
+	
+	<p><%= f.label :cargahoraria %><br />
+	<%= f.text_field :cargahoraria %></p>
+	
+	<p><%= f.label :ementa %><br />
+	<%= f.text_field :ementa %></p>
+
+	<p><%= f.label :objetivo %><br />
+	<%= f.text_field :objetivo %></p>
+
+	<p><%= f.label :prerequisito %><br />
+	<%= f.text_field :prerequisito %></p>
+	
+	<p><%= f.label :credito %><br /> 
+	<%= f.text_field :credito %></p>
+	
+	<p><%= f.label :referencia %><br /> 
+	<%= f.text_field :referencia %></p>
+	
+	<%= f.submit %>	
+
+<% end %>

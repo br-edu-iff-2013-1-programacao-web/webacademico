@@ -1,6 +1,5 @@
-<h1>Editing nota</h1>
 
-<%= render 'form' %>
+<%= render 'formulario' %>
 
-<%= link_to 'Show', @nota %> |
-<%= link_to 'Back', notas_path %>
+<p><%= link_to I18n.t('link_to.show'), @nota %> |
+<%= link_to I18n.t('link_to.back'), notas_path %></p>

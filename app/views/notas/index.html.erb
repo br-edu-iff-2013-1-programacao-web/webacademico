@@ -1,27 +1,33 @@
-<h1>Listing notas</h1>
-
-<table>
-  <tr>
-    <th>Nota</th>
-    <th>Avaliacao</th>
-    <th>Diarioaluno</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @notas.each do |nota| %>
-  <tr>
-    <td><%= nota.nota %></td>
-    <td><%= nota.avaliacao %></td>
-    <td><%= nota.diarioaluno %></td>
-    <td><%= link_to 'Show', nota %></td>
-    <td><%= link_to 'Edit', edit_nota_path(nota) %></td>
-    <td><%= link_to 'Destroy', nota, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.nota" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.nota.nota' %></th>
+        <th><%= I18n.t 'activerecord.attributes.nota.avaliacao' %></th>
+        <th><%= I18n.t 'activerecord.attributes.nota.diarioaluno_id' %></th>
+      </tr>
+      <tr>
+        <td><%= nota.nota %></td>
+        <td><%= nota.avaliacao %></td>
+        <td><%= nota.diarioaluno %></td>
+      </tr>
+      <tr>
+        <% if can? :read, @nota %>
+            <td><p><%= link_to I18n.t('link_to.show'), nota %></p></td>
+        <% end %>
+        <% if can? :update, @nota %>
+            <td><p><%= link_to I18n.t('link_to.edit'), edit_nota_path(nota) %></p></td>
+        <% end %>
+        <% if can? :delete, @nota %>
+            <td><p><%= link_to I18n.t('link_to.delete'), nota, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Nota', new_nota_path %>
+<% if can? :create, @nota %>
+    <p><%= link_to I18n.t('link_to.new'), new_nota_path %></p>
+<% end %>

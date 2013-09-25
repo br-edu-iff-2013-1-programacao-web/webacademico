@@ -1,0 +1,16 @@
+<%= form_for(@nota) do |f| %>
+
+    <h2><%= I18n.t "activerecord.models.nota" %></h2>
+
+	<p><%= f.label :avaliacao %><br /> 
+	<%= f.text_field :avaliacao %></p>
+	
+	<p><%= f.label :nota %><br />
+	<%= f.text_field :nota %></p>
+
+	<p><%= f.label :diarioaluno_id %><br />
+	<%= f.collection_select :diarioaluno_id, Diarioaluno.all, :id, :id.to_s %> </p>
+
+	<div><%= f.submit %></div>
+
+<% end %>

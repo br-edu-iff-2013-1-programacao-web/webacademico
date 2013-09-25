@@ -1,20 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@nota) do |f| %>
 
-<p>
-  <b>Nota:</b>
-  <%= @nota.nota %>
-</p>
+    <h2><%= I18n.t "activerecord.models.nota" %></h2>
 
-<p>
-  <b>Avaliacao:</b>
-  <%= @nota.avaliacao %>
-</p>
+    <p><b><%= f.label :nota %>:</b>
+    <%= @nota.nota %></p>
 
-<p>
-  <b>Media:</b>
-  <%= @nota.diarioaluno.mediafinal %>
-</p>
+    <p><b><%= f.label :avaliacao %>:</b>
+    <%= @nota.avaliacao %></p>
 
+    <p><b><%= f.label :diarioaluno_id %>:</b>
+    <%= @nota.diarioaluno.id.to_s %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_nota_path(@nota) %> |
-<%= link_to 'Back', notas_path %>
+<p><% if can? :update, @nota %>
+    <%= link_to I18n.t('link_to.edit'), edit_nota_path(@nota) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), notas_path %></p>

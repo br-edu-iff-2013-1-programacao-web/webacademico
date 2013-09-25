@@ -1,29 +1,34 @@
-<h1>Listing diarioalunos</h1>
-
-<table>
-  <tr>
-    <th>Mediafinal</th>
-    <th>Frequenciafinal</th>
-    <th>Diario</th>
-    <th>Matriculado</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @diarioalunos.each do |diarioaluno| %>
-  <tr>
-    <td><%= diarioaluno.mediafinal %></td>
-    <td><%= diarioaluno.frequenciafinal %></td>
-    <td><%= diarioaluno.diario %></td>
-    <td><%= diarioaluno.matriculado %></td>
-    <td><%= link_to 'Show', diarioaluno %></td>
-    <td><%= link_to 'Edit', edit_diarioaluno_path(diarioaluno) %></td>
-    <td><%= link_to 'Destroy', diarioaluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.diarioaluno" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.diarioaluno.mediafinal' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diarioaluno.frequenciafinal' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diarioaluno.diario_id' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diarioaluno.matriculado_id' %></th>
+      </tr>
+      <tr>
+        <td><%= diarioaluno.mediafinal %></td>
+        <td><%= diarioaluno.frequenciafinal %></td>
+        <td><%= diarioaluno.diario %></td>
+        <td><%= diarioaluno.matriculado %></td>
+      </tr>
+      <tr>
+        <% if can? :read, @diarioaluno %>
+            <td><p><%= link_to I18n.t('link_to.show'), diarioaluno %></p></td>
+        <% end %>
+        <% if can? :update, @diarioaluno %>
+            <td><p><%= link_to I18n.t('link_to.edit'), edit_diarioaluno_path(diarioaluno) %></p></td>
+        <% if can? :delete, @diarioaluno %>
+            <td><p><%= link_to I18n.t('link_to.delete'), diarioaluno, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Diarioaluno', new_diarioaluno_path %>
+<% if can? :create, @diario %>
+    <p><%= link_to I18n.t('link_to.new'), new_diarioaluno_path %></p>
+<% end %>

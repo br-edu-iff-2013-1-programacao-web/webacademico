@@ -1,0 +1,19 @@
+<%= form_for(@diarioaluno) do |f| %>
+
+    <h2><%= I18n.t "activerecord.models.diarioaluno" %></h2>
+
+	<p><%= f.label :mediafinal %><br /> 
+	<%= f.text_field :mediafinal %></p>
+	
+	<p><%= f.label :frequenciafinal %><br />
+	<%= f.text_field :frequenciafinal %></p>
+	
+	<p><%= f.label :diario_id %><br />
+	<%= f.collection_select :diario_id, Diario.all, :id, :pasta %> </p>
+
+	<p><%= f.label :matriculado_id %><br />
+	<%= f.collection_select :matriculado_id, Matriculado.all, :id, :id.to_s %> </p>
+
+	<div><%= f.submit %></div>
+
+<% end %>

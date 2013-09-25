@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@diarioaluno) do |f| %>
 
-<p>
-  <b>Media Final:</b>
-  <%= @diarioaluno.mediafinal %>
-</p>
+    <h2><%= I18n.t "activerecord.models.diarioaluno" %></h2>
 
-<p>
-  <b>Frequencia Final:</b>
-  <%= @diarioaluno.frequenciafinal %>
-</p>
+    <p><b><%= f.label :mediafinal %>:</b>
+    <%= @diarioaluno.mediafinal %></p>
 
-<p>
-  <b>Diario:</b>
-  <%= @diarioaluno.diario.pasta %>
-</p>
+    <p><b><%= f.label :frequenciafinal %>:</b>
+    <%= @diarioaluno.frequenciafinal %></p>
 
-<p>
-  <b>Status:</b>
-  <%= @diarioaluno.matriculado.estadomatricula %>
-</p>
+    <p><b><%= f.label :diario_id %>:</b>
+    <%= @diarioaluno.diario.pasta %></p>
 
+    <p><b><%= f.label :matriculado_id %>:</b>
+    <%= @diarioaluno.matriculado.id.to_s %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_diarioaluno_path(@diarioaluno) %> |
-<%= link_to 'Back', diarioalunos_path %>
+<p><% if can? :update, @diarioaluno %>
+   <%= link_to I18n.t('link_to.edit'), edit_diarioaluno_path(@diarioaluno) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), diarioalunos_path %></p>

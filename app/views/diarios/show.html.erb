@@ -1,35 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@diario) do |f| %>
 
-<p>
-  <b>Ano:</b>
-  <%= @diario.ano %>
-</p>
+    <h2><%= I18n.t "activerecord.models.diario" %></h2>
 
-<p>
-  <b>Semestre:</b>
-  <%= @diario.semestre %>
-</p>
+    <p><b><%= f.label :ano %>:</b>
+    <%= @diario.ano %></p>
 
-<p>
-  <b>Turno:</b>
-  <%= @diario.turno %>
-</p>
+    <p><b><%= f.label :semestre %>:</b>
+    <%= @diario.semestre %></p>
 
-<p>
-  <b>Pasta:</b>
-  <%= @diario.pasta %>
-</p>
+    <p><b><%= f.label :turno %>:</b>
+    <%= @diario.turno %></p>
 
-<p>
-  <b>Periodo:</b>
-  <%= @diario.grade.periodo %>
-</p>
+    <p><b><%= f.label :pasta %>:</b>
+    <%= @diario.pasta %></p>
 
-<p>
-  <b>Docente:</b>
-  <%= @diario.docente.nome %>
-</p>
+    <p><b><%= f.label :grade_id %>:</b>
+    <%= @diario.grade.referencia %></p>
 
+    <p><b><%= f.label :docente_id %>:</b>
+    <%= @diario.docente.nome %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_diario_path(@diario) %> |
-<%= link_to 'Back', diarios_path %>
+<p><% if can? :update, @diario %>
+    <%= link_to I18n.t('link_to.edit'), edit_diario_path(@diario) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), diarios_path %></p>

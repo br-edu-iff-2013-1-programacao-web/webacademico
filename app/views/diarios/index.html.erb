@@ -1,33 +1,39 @@
-<h1>Listing diarios</h1>
-
-<table>
-  <tr>
-    <th>Ano</th>
-    <th>Semestre</th>
-    <th>Turno</th>
-    <th>Pasta</th>
-    <th>Grade</th>
-    <th>Docente</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @diarios.each do |diario| %>
-  <tr>
-    <td><%= diario.ano %></td>
-    <td><%= diario.semestre %></td>
-    <td><%= diario.turno %></td>
-    <td><%= diario.pasta %></td>
-    <td><%= diario.grade %></td>
-    <td><%= diario.docente %></td>
-    <td><%= link_to 'Show', diario %></td>
-    <td><%= link_to 'Edit', edit_diario_path(diario) %></td>
-    <td><%= link_to 'Destroy', diario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.diario" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.diario.ano' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diario.semestre' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diario.turno' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diario.pasta' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diario.grade_id' %></th>
+        <th><%= I18n.t 'activerecord.attributes.diario.docente_id' %></th>
+      </tr>
+      <tr>
+        <td><%= diario.ano %></td>
+        <td><%= diario.semestre %></td>
+        <td><%= diario.turno %></td>
+        <td><%= diario.pasta %></td>
+        <td><%= diario.grade %></td>
+        <td><%= diario.docente %></td>
+      </tr>
+      <tr>
+        <% if can? :read, @diario %>
+            <td><p><%= link_to I18n.t('link_to.show'), diario %></p></td>
+        <% end %>
+        <% if can? :update, @diario %>
+            <td><p><%= link_to I18n.t('link_to.edit'), edit_diario_path(diario) %></p></td>
+        <% end %>
+        <% if can? :delete, @diario %>
+            <td><p><%= link_to I18n.t('link_to.delete'), diario, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Diario', new_diario_path %>
+<% if can? :create, @diario %>
+    <p><%= link_to I18n.t('link_to.new'), new_diario_path %></p>
+<% end %>

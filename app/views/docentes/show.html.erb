@@ -1,35 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@docente) do |f| %>
 
-<p>
-  <b>Nome:</b>
-  <%= @docente.nome %>
-</p>
+    <h2><%= I18n.t "activerecord.models.docente" %></h2>
 
-<p>
-  <b>Matricula:</b>
-  <%= @docente.matricula %>
-</p>
+    <%= image_tag @docente.imageurl.url(:small) %></p>
 
-<p>
-  <b>Situacao:</b>
-  <%= @docente.situacao %>
-</p>
+    <p><b><%= f.label :nome %>:</b>
+    <%= @docente.nome %></p>
 
-<p>
-  <b>Titulacao:</b>
-  <%= @docente.titulacao %>
-</p>
+    <p><b><%= f.label :matricula %>:</b>
+    <%= @docente.matricula %></p>
 
-<p>
-  <b>Email:</b>
-  <%= @docente.email %>
-</p>
+    <p><b><%= f.label :situacao %>:</b>
+    <%= @docente.situacao %></p>
 
-<p>
-  <b>Foto:</b>
-  <%= @docente.imageurl %>
-</p>
+    <p><b><%= f.label :titulacao %>:</b>
+    <%= @docente.titulacao %></p>
 
+    <p><b><%= f.label :email %>:</b>
+    <%= @docente.email %></p>
 
-<%= link_to 'Edit', edit_docente_path(@docente) %> |
-<%= link_to 'Back', docentes_path %>
+<% end %>
+
+<p><% if can? :update, @docente %>
+    <%= link_to I18n.t('link_to.edit'), edit_docente_path(@docente) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), docentes_path %></p>

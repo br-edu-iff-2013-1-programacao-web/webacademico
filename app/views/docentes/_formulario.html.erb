@@ -1,0 +1,25 @@
+<%= form_for(@docente) do |f| %>
+
+    <h2><%= I18n.t "activerecord.models.docente" %></h2>
+
+	<p><%= f.label :imageurl %><br />
+	<%= f.file_field :imageurl %></p>
+	
+	<p><%= f.label :matricula %><br />
+	<%= f.text_field :matricula %></p>
+
+	<p><%= f.label :nome %><br />
+	<%= f.text_field :nome %></p>
+	
+	<p><%= f.label :titulacao %><br /> 
+	<%= f.text_field :titulacao %></p>
+	
+	<p><%= f.label :situacao %><br />
+	<%= f.text_field :situacao %></p>
+	
+	<p><%= f.label :email %><br /> 
+	<%= f.email_field :email %></p>
+
+	<%= f.submit %>	
+
+<% end %>

@@ -1,33 +1,39 @@
-<h1>Listing docentes</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Matricula</th>
-    <th>Situacao</th>
-    <th>Titulacao</th>
-    <th>Email</th>
-    <th>Imageurl</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @docentes.each do |docente| %>
-  <tr>
-    <td><%= docente.nome %></td>
-    <td><%= docente.matricula %></td>
-    <td><%= docente.situacao %></td>
-    <td><%= docente.titulacao %></td>
-    <td><%= docente.email %></td>
-    <td><%= docente.imageurl %></td>
-    <td><%= link_to 'Show', docente %></td>
-    <td><%= link_to 'Edit', edit_docente_path(docente) %></td>
-    <td><%= link_to 'Destroy', docente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.docente" %></h2>
+    
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.docente.nome' %></th>
+        <th><%= I18n.t 'activerecord.attributes.docente.matricula' %></th>
+        <th><%= I18n.t 'activerecord.attributes.docente.situacao' %></th>
+        <th><%= I18n.t 'activerecord.attributes.docente.titulacao' %></th>
+        <th><%= I18n.t 'activerecord.attributes.docente.email' %></th>
+        <th><%= I18n.t 'activerecord.attributes.docente.imageurl' %></th>
+      </tr>
+      <tr>
+        <td><%= docente.nome %></td>
+        <td><%= docente.matricula %></td>
+        <td><%= docente.situacao %></td>
+        <td><%= docente.titulacao %></td>
+        <td><%= docente.email %></td>
+        <td><%= docente.imageurl.url %></td>
+      </tr>
+      <tr>
+        <% if can? :read, @docente %>
+            <td><p><%= link_to I18n.t('link_to.show'), docente %></p></td>
+        <% end %>
+        <% if can? :update, @docente %>
+            <td><p><%= link_to I18n.t('link_to.edit'), edit_docente_path(docente) %></p></td>
+        <% end %>
+        <% if can? :delete, @docente %>
+            <td><p><%= link_to I18n.t('link_to.delete'), docente, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Docente', new_docente_path %>
+<% if can? :create, @docente %>
+    <p><%= link_to I18n.t('link_to.new'), new_docente_path %></p>
+<% end %>

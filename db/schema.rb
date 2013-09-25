@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925222120) do
+ActiveRecord::Schema.define(:version => 20130925222859) do
 
   create_table "alunos", :force => true do |t|
     t.string   "nome"
@@ -91,8 +91,12 @@ ActiveRecord::Schema.define(:version => 20130925222120) do
     t.string   "titulacao"
     t.string   "email"
     t.string   "imageurl"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "imageurl_file_name"
+    t.string   "imageurl_content_type"
+    t.integer  "imageurl_file_size"
+    t.datetime "imageurl_updated_at"
   end
 
   create_table "frequencias", :force => true do |t|

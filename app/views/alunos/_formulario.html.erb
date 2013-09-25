@@ -1,0 +1,43 @@
+<%= form_for @aluno, :html => { :multipart => true } do |f| %>
+
+    <h2><%= I18n.t "activerecord.models.aluno" %></h2>
+
+    <p><%= f.label :imageurl %><br />
+    <%= f.file_field :imageurl %></p>
+
+    <p><%= f.label :matricula %><br />
+    <%= f.text_field :matricula %></p>
+
+    <p><%= f.label :nome %><br />
+    <%= f.text_field :nome %></p>
+
+    <p><%= f.label :email %><br />
+    <%= f.email_field :email %></p>
+
+    <p><%= f.label :rg %><br />
+    <%= f.text_field :rg %></p>
+
+    <p><%= f.label :cpf %><br />
+    <%= f.text_field :cpf %></p>
+
+    <p><%= f.label :pai %><br />
+    <%= f.text_field :pai %></p>
+
+    <p><%= f.label :mae %><br />
+    <%= f.text_field :mae %></p>
+    
+    <p><%= f.label :endereco %><br />
+    <%= f.text_field :endereco %></p>
+
+    <p><%= f.label :bairro %><br />
+    <%= f.text_field :bairro %></p>
+
+    <p><%= f.label :cidade %><br />
+    <%= f.text_field :cidade %></p>
+
+    <p><%= f.label :uf %><br />
+    <%= f.collection_select :uf, Aluno::UF, :to_s, :upcase %></br>
+
+    <%= f.submit %>
+
+<% end %>

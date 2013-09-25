@@ -1,6 +1,5 @@
-<h1>Editing aluno</h1>
 
-<%= render 'form' %>
+<%= render 'formulario' %>
 
-<%= link_to 'Show', @aluno %> |
-<%= link_to 'Back', alunos_path %>
+<p><%= link_to I18n.t('link_to.show'), @aluno %> |
+<%= link_to I18n.t('link_to.back'), alunos_path %></p>

@@ -1,65 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@aluno, :html => { :multipart => true }) do |f| %>
 
-<p>
-  <b>Nome:</b>
-  <%= @aluno.nome %>
-</p>
+    <h2><%= I18n.t 'activerecord.models.aluno' %></h2>
 
-<p>
-  <b>Matricula:</b>
-  <%= @aluno.matricula %>
-</p>
+    <%= image_tag @aluno.imageurl.url(:small) %></p>
 
-<p>
-  <b>Pai:</b>
-  <%= @aluno.pai %>
-</p>
+    <p><b><%= f.label :matricula %>:</b>
+    <%= @aluno.matricula %></p>
 
-<p>
-  <b>Mae:</b>
-  <%= @aluno.mae %>
-</p>
+    <p><b><%= f.label :nome %>:</b>
+    <%= @aluno.nome %></p>
 
-<p>
-  <b>CPF:</b>
-  <%= @aluno.cpf %>
-</p>
+    <p><b><%= f.label :pai %>:</b>
+    <%= @aluno.pai %></p>
 
-<p>
-  <b>RG:</b>
-  <%= @aluno.rg %>
-</p>
+    <p><b><%= f.label :mae %>:</b>
+    <%= @aluno.mae %></p>
 
-<p>
-  <b>Endereco:</b>
-  <%= @aluno.endereco %>
-</p>
+    <p><b><%= f.label :cpf %>:</b>
+    <%= @aluno.cpf %></p>
 
-<p>
-  <b>Bairro:</b>
-  <%= @aluno.bairro %>
-</p>
+    <p><b><%= f.label :rg %>:</b>
+    <%= @aluno.rg %></p>
 
-<p>
-  <b>Cidade:</b>
-  <%= @aluno.cidade %>
-</p>
+    <p><b><%= f.label :endereco %>:</b>
+    <%= @aluno.endereco %></p>
 
-<p>
-  <b>UF:</b>
-  <%= @aluno.uf %>
-</p>
+    <p><b><%= f.label :bairro %>:</b>
+    <%= @aluno.bairro %></p>
 
-<p>
-  <b>Email:</b>
-  <%= @aluno.email %>
-</p>
+    <p><b><%= f.label :cidade %>:</b>
+    <%= @aluno.cidade %></p>
 
-<p>
-  <b>Foto:</b>
-  <%= @aluno.imageurl %>
-</p>
+    <p><b><%= f.label :uf %>:</b>
+    <%= @aluno.uf.upcase %></p>
 
+    <p><b><%= f.label :email %>:</b>
+    <%= @aluno.email %></p>
 
-<%= link_to 'Edit', edit_aluno_path(@aluno) %> |
-<%= link_to 'Back', alunos_path %>
+<% end %>
+
+<p><% if can? :update, @aluno %>
+    <%= link_to I18n.t('link_to.edit'), edit_aluno_path(@aluno) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), alunos_path %></p>

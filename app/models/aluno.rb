@@ -6,4 +6,6 @@ class Aluno < ActiveRecord::Base
 
   validates_attachment_size :imageurl, :less_than => 5.megabytes
   validates_attachment_content_type :imageurl, :content_type => ['image/jpeg', 'image/png']
+  
+  UF = %w[ac al ap am ba ce df es go ma mt ms mg pa pb pr pe pi rj rn rs ro rr sc sp se to]
 end

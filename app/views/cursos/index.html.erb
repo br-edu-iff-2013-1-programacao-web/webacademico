@@ -1,35 +1,41 @@
-<h1>Listing cursos</h1>
-
-<table>
-  <tr>
-    <th>Graduacao</th>
-    <th>Nome</th>
-    <th>Duracao</th>
-    <th>Matrizcurricular</th>
-    <th>Regime</th>
-    <th>Ementa</th>
-    <th>Referencia</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @cursos.each do |curso| %>
-  <tr>
-    <td><%= curso.graduacao %></td>
-    <td><%= curso.nome %></td>
-    <td><%= curso.duracao %></td>
-    <td><%= curso.matrizcurricular %></td>
-    <td><%= curso.regime %></td>
-    <td><%= curso.ementa %></td>
-    <td><%= curso.referencia %></td>
-    <td><%= link_to 'Show', curso %></td>
-    <td><%= link_to 'Edit', edit_curso_path(curso) %></td>
-    <td><%= link_to 'Destroy', curso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.curso" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.curso.graduacao' %></th>
+        <th><%= I18n.t 'activerecord.attributes.curso.nome' %></th>
+        <th><%= I18n.t 'activerecord.attributes.curso.duracao' %></th>
+        <th><%= I18n.t 'activerecord.attributes.curso.matrizcurricular' %></th>
+        <th><%= I18n.t 'activerecord.attributes.curso.regime' %></th>
+        <th><%= I18n.t 'activerecord.attributes.curso.ementa' %></th>
+        <th><%= I18n.t 'activerecord.attributes.curso.referencia' %></th>
+      </tr>
+      <tr>
+        <td><%= curso.graduacao %></td>
+        <td><%= curso.nome %></td>
+        <td><%= curso.duracao %></td>
+        <td><%= curso.matrizcurricular %></td>
+        <td><%= curso.regime %></td>
+        <td><%= curso.ementa %></td>
+        <td><%= curso.referencia %></td>
+      </tr>
+      <tr>
+      <% if can? :read, @curso %>
+        <td><p><%= link_to I18n.t('link_to.show'), curso %></p></td>
+      <% end %>
+      <% if can? :update, @curso %>
+        <td><p><%= link_to I18n.t('link_to.edit'), edit_curso_path(curso) %></p></td>
+      <% end %>
+      <% if can? :delete, @curso %>
+        <td><p><%= link_to I18n.t('link_to.delete'), curso, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+      <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Curso', new_curso_path %>
+<% if can? :create, @curso %>
+    <p><%= link_to I18n.t('link_to.new'), new_curso_path %></p>
+<% end %>

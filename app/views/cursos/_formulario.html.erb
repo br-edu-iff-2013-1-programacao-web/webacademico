@@ -1,33 +1,27 @@
-<h2>Cadastrar Curso</h2>
+<%= form_for(@curso) do |f| %>
 
-<% form_for(@evento) do |f| %>
+   <h2><%= I18n.t "activerecord.models.curso" %></h2>
 
-   <h4>Graduação</h4>
-   <%= f.text_field :graduacao %>
-
-   <h4>Nome</h4>
-   <%= f.text_field :nome %>
+   <p><%= f.label :graduacao %><br />
+   <%= f.text_field :graduacao %></p>
    
-   <h4>Duração</h4>
-   <%= f.text_field :duracao %>
+   <p><%= f.label :nome %><br />
+   <%= f.text_field :nome %></p>
    
-   <h4>Matriz Curricular</h4>
-   <%= f.text_field :matriz curricular %>
+   <p><%= f.label :duracao %><br />
+   <%= f.text_field :duracao %></p>
+   
+   <p><%= f.label :matrizcurricular %><br />
+   <%= f.text_field :matrizcurricular %></p>
  
-    <h4>Regime</h4>
-    <%= f.select :regime_id, Regime.find(:all).collect { |item| [regime.curso_regime,item.id] }
+    <p><%= f.label :regime %><br />
+    <%= f.text_field :regime %></p>
  
-   <h4>Ementa</h4>
-   <%= f.text_field :ementa %>
+   <p><%= f.label :ementa %><br />
+   <%= f.text_field :ementa %></p>
    
-   <h4>Referencia</h4>
-   <%= f.text_field :referencia %>
+   <p><%= f.label :referencia %><br />
+   <%= f.text_field :referencia %></p>
        
-   
-<br />
-   <%= f.submit "Cadastrar" %>
+  <%= f.submit %>
 <% end %>
-
-
-
-

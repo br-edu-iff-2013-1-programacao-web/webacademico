@@ -1,40 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@curso) do |f| %>
 
-<p>
-  <b>Graduacao:</b>
-  <%= @curso.graduacao %>
-</p>
+   <h2><%= I18n.t "activerecord.models.curso" %></h2>
+    
+    <p><b><%= f.label :graduacao %>:</b>
+    <%= @curso.graduacao %></p>
 
-<p>
-  <b>Nome:</b>
-  <%= @curso.nome %>
-</p>
+    <p><b><%= f.label :nome %>:</b>
+    <%= @curso.nome %></p>
 
-<p>
-  <b>Duracao:</b>
-  <%= @curso.duracao %>
-</p>
+    <p><b><%= f.label :duracao %>:</b>
+    <%= @curso.duracao %></p>
 
-<p>
-  <b>Matriz Curricular:</b>
-  <%= @curso.matrizcurricular %>
-</p>
+    <p><b><%= f.label :matrizcurricular %>:</b>
+    <%= @curso.matrizcurricular %></p>
 
-<p>
-  <b>Regime:</b>
-  <%= @curso.regime %>
-</p>
+    <p><b><%= f.label :regime %>:</b>
+    <%= @curso.regime %></p>
 
-<p>
-  <b>Ementa:</b>
-  <%= @curso.ementa %>
-</p>
+    <p><b><%= f.label :ementa %>:</b>
+    <%= @curso.ementa %></p>
 
-<p>
-  <b>Referencia:</b>
-  <%= @curso.referencia %>
-</p>
+    <p><b><%= f.label :referencia %>:</b>
+    <%= @curso.referencia %></p>
 
+<% end %>
 
-<%= link_to 'Edit', edit_curso_path(@curso) %> |
-<%= link_to 'Back', cursos_path %>
+<p><% if can? :update, @curso %>
+    <%= link_to I18n.t('link_to.edit'), edit_curso_path(@curso) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), cursos_path %></p>

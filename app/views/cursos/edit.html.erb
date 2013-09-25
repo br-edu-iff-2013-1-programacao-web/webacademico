@@ -1,6 +1,5 @@
-<h1>Editing curso</h1>
 
-<%= render 'form' %>
+<%= render 'formulario' %>
 
-<%= link_to 'Show', @curso %> |
-<%= link_to 'Back', cursos_path %>
+<p><%= link_to I18n.t('link_to.show'), @curso %> |
+<%= link_to I18n.t('link_to.back'), cursos_path %></p>

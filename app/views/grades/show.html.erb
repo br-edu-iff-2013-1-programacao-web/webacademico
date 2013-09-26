@@ -1,25 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@grade) do |f| %>
 
-<p>
-  <b>Periodo:</b>
-  <%= @grade.periodo %>
-</p>
+    <h2><%= I18n.t "activerecord.models.grade" %></h2>
 
-<p>
-  <b>Referencia:</b>
-  <%= @grade.referencia %>
-</p>
+    <p><b><%= f.label :periodo %>:</b>
+    <%= @grade.periodo %></p>
 
-<p>
-  <b>Disciplina:</b>
-  <%= @grade.disciplina.nome %>
-</p>
+    <p><b><%= f.label :referencia %>:</b>
+    <%= @grade.referencia %></p>
 
-<p>
-  <b>Curso:</b>
-  <%= @grade.curso.nome %>
-</p>
+    <p><b><%= f.label :disciplina_id %>:</b>
+    <%= @grade.disciplina.nome %></p>
 
+    <p><b><%= f.label :curso_id %>:</b>
+    <%= @grade.curso.nome %></p>
+    
+<% end %>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+<p><% if can? :update, @grade %>
+    <%= link_to I18n.t('link_to.edit'), edit_grade_path(@grade) %> |
+<% end %>
+<%= link_to I18n.t('link_to.back'), grades_path %></p>

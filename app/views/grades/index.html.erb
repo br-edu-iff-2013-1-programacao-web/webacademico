@@ -1,29 +1,35 @@
-<h1>Listing grades</h1>
-
-<table>
-  <tr>
-    <th>Periodo</th>
-    <th>Referencia</th>
-    <th>Disciplina</th>
-    <th>Curso</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @grades.each do |grade| %>
-  <tr>
-    <td><%= grade.periodo %></td>
-    <td><%= grade.referencia %></td>
-    <td><%= grade.disciplina %></td>
-    <td><%= grade.curso %></td>
-    <td><%= link_to 'Show', grade %></td>
-    <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-    <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2><%= I18n.t "activerecord.models.grade" %></h2>
+
+    <table>
+      <tr>
+        <th><%= I18n.t 'activerecord.attributes.grade.periodo' %></th>
+        <th><%= I18n.t 'activerecord.attributes.grade.referencia' %></th>
+        <th><%= I18n.t 'activerecord.attributes.grade.disciplina_id' %></th>
+        <th><%= I18n.t 'activerecord.attributes.grade.curso_id' %></th>
+      </tr>
+      <tr>
+        <td><%= grade.periodo %></td>
+        <td><%= grade.referencia %></td>
+        <td><%= grade.disciplina %></td>
+        <td><%= grade.curso %></td>
+      </tr>
+      <tr>
+        <% if can? :read, @grade %>
+            <td><p><%= link_to I18n.t('link_to.show'), grade %></p></td>
+        <% end %>
+        <% if can? :update, @grade %>
+            <td><p><%= link_to I18n.t('link_to.edit'), edit_grade_path(grade) %></p></td>
+        <% end %>
+        <% if can? :delete, @grade %>
+            <td><p><%= link_to I18n.t('link_to.delete'), grade, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+        <% end %>
+      </tr>
+    </table>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Grade', new_grade_path %>
+<% if can? :create, @grade %>
+    <p><%= link_to I18n.t('link_to.new'), new_grade_path %></p>
+<% end %>

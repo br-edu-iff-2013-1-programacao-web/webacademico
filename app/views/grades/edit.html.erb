@@ -1,6 +1,5 @@
-<h1>Editing grade</h1>
 
-<%= render 'form' %>
+<%= render 'formulario' %>
 
-<%= link_to 'Show', @grade %> |
-<%= link_to 'Back', grades_path %>
+<p><%= link_to I18n.t('link_to.show'), @grade %> |
+<%= link_to I18n.t('link_to.back'), grades_path %></p>

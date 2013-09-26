@@ -1,0 +1,19 @@
+<%= form_for(@grade) do |f| %>
+
+    <h2><%= I18n.t "activerecord.models.grade" %></h2>
+
+	<p><%= f.label :periodo %><br /> 
+	<%= f.text_field :periodo %></p>
+	
+	<p><%= f.label :referencia %><br />
+	<%= f.text_field :referencia %></p>
+	
+	<p><%= f.label :disciplina_id %><br />
+	<%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome %> </p>
+
+	<p><%= f.label :curso_id %><br />
+	<%= f.collection_select :curso_id, Curso.all, :id, :nome %> </p>
+
+	<div><%= f.submit %></div>
+
+<% end %>

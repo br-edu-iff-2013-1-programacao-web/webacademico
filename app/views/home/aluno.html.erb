@@ -1,0 +1,23 @@
+<h2><%= I18n.t 'activerecord.models.aluno' %></h2>
+
+<% @alunos = Aluno.all %>
+<% @alunos.each do |aluno| %>
+    <% if aluno.matricula == current_user.username %>
+        <p><%= link_to I18n.t('link_to.link_me'), aluno %></p>
+    <% end %>
+<% end %>
+
+<table>
+      <tr>
+        <th><%= I18n.t 'activerecord.models.aluno' %></th>
+        <th><%= I18n.t 'activerecord.models.docente' %></th>
+        <th><%= I18n.t 'activerecord.models.frequencia' %></th>
+        <th><%= I18n.t 'activerecord.models.nota' %></th>
+      </tr>
+      <tr>
+        <td><p><%= link_to I18n.t('activerecord.models.aluno'), alunos_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.docente'), docentes_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.frequencia'), frequencias_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.nota'), notas_path %></p></td>
+      </tr>
+</table>

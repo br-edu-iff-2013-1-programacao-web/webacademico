@@ -1,2 +1,28 @@
-<h1>Home#tecnico</h1>
-<p>Find me in app/views/home/tecnico.html.erb</p>
+<h2><%= I18n.t 'link_to.technical' %></h2>
+
+<table>
+      <tr>
+        <th><%= I18n.t 'activerecord.models.aluno' %></th>
+        <th><%= I18n.t 'activerecord.models.curso' %></th>
+        <th><%= I18n.t 'activerecord.models.diario' %></th>
+        <th><%= I18n.t 'activerecord.models.diarioaluno' %></th>
+        <th><%= I18n.t 'activerecord.models.disciplina' %></th>
+        <th><%= I18n.t 'activerecord.models.docente' %></th>
+        <th><%= I18n.t 'activerecord.models.frequencia' %></th>
+        <th><%= I18n.t 'activerecord.models.grade' %></th>
+        <th><%= I18n.t 'activerecord.models.matriculado' %></th>
+        <th><%= I18n.t 'activerecord.models.nota' %></th>
+      </tr>
+      <tr>
+        <td><p><%= link_to I18n.t('activerecord.models.aluno'), alunos_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.curso'), cursos_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.diario'), diarios_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.diarioaluno'), diarioalunos_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.disciplina'), disciplinas_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.docente'), docentes_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.frequencia'), frequencias_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.grade'), grades_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.matriculado'), matriculados_path %></p></td>
+        <td><p><%= link_to I18n.t('activerecord.models.nota'), notas_path %></p></td>
+      </tr>
+</table>

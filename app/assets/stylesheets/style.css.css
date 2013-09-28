@@ -285,6 +285,12 @@ body {
 	margin: 0 0 24px;
 	padding: 0;
 }
+#body div .featured table {
+	text-align: center;
+}
+#body div .featured th {
+	background: gray;
+}
 #body div .featured p a {
 	color: #464646;
 }

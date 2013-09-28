@@ -218,8 +218,13 @@ en:
     developers: "developers"
     contact: "contact"
     sign_out: "Sign out"
+    sign_in: "Sign in"
+    sign_up: "Sign up"
     english: "English"
     portuguese: "Portuguese"
+    administrator: "Administrator"
+    technical: "Technical"
+    link_me: "Link me"
   activemodel:
     errors:
       <<: *errors

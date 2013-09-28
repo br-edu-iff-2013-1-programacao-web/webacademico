@@ -43,5 +43,18 @@ describe HomeController do
       response.should be_success
     end
   end
-
+  
+  describe "GET 'aluno'" do
+    it "returns http success" do
+      get 'aluno'
+      response.should be_success
+    end
+  end
+  
+  describe "GET 'docente'" do
+    it "returns http success" do
+      get 'docente'
+      response.should be_success
+    end
+  end
 end

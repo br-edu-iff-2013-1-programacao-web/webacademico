@@ -13,6 +13,10 @@ Webacademico::Application.routes.draw do
 
   get "home/administrador"
   
+  get "home/aluno"
+
+  get "home/docente"
+  
   root :to=> "home#index" 
 
   resources :frequencias

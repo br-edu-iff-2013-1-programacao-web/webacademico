@@ -9,21 +9,9 @@ class HomeController < ApplicationController
             redirect_to home_tecnico_path
         else
             if current_user.role == "docente" || current_user.role == "instructor"
-#                @docentes = Docente.all
-#                @docentes.each do |docente|
-#                    if docente.matricula == current_user.username
-#                        redirect_to docente
-#                    end
-#                end
-                redirect_to docentes_path
+                redirect_to home_docente_path
             else
-#                @alunos = Aluno.all
-#                @alunos.each do |aluno|
-#                    if aluno.matricula == current_user.username
-#                        redirect_to aluno
-#                    end
-#                end
-                redirect_to alunos_path
+                redirect_to home_aluno_path
             end
         end
     end
@@ -42,5 +30,11 @@ class HomeController < ApplicationController
   end
 
   def administrador
+  end
+  
+  def aluno
+  end
+  
+  def docente
   end
 end

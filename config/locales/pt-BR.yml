@@ -214,8 +214,13 @@ pt-BR:
     developers: "equipe"
     contact: "contato"
     sign_out: "Sair"
+    sign_in: "Entrar"
+    sign_up: "Registre-se"
     english: "Inglês"
     portuguese: "Português"
+    administrator: "Administrador"
+    technical: "Tecnico"
+    link_me: "Meus Dados"
   activemodel:
     errors:
       <<: *errors

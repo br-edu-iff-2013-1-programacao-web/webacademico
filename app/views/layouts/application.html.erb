@@ -43,8 +43,7 @@
           <%= link_to_unless I18n.locale == :"pt-BR", I18n.t('link_to.portuguese'), locale: :"pt-BR" %></p>
 	      <div id="user_nav">
             <% if user_signed_in? %>
-              <p>Signed in as <%= current_user.username %>. Not you?
-              <%= link_to I18n.t('link_to.sign_out'), destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <p><%= link_to I18n.t('link_to.sign_out'), destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
             <% end %>
             </div>
 	        <p>
